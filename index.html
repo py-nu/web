@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Acme Labs</title>
-<meta name="description" content="Open-source tools and research from Acme Labs.">
+<title>PyNu</title>
+<meta name="description" content="Advancing software tools for neutrino physics analyses.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔬</text></svg>">
 <style>
 :root{
   --bg:#f6f7f9; --surface:#ffffff; --ink:#14181f; --muted:#5b6575; --line:#dfe3ea;
-  --pl:#3b5bdb; --pli:#ffffff; --pd:#8da2ff; --pdi:#0f1319;
+  --pl:#00735a; --pli:#ffffff; --pd:#4fd1ae; --pdi:#04140f;
   --accent:var(--pl); --accent-ink:var(--pli); --code-bg:#10151d; --code-ink:#e6ebf5;
   --radius:10px; --max:1080px;
   color-scheme:light;
@@ -24,8 +24,6 @@
   --bg:#0f1319; --surface:#171c24; --ink:#eef1f6; --muted:#98a2b3; --line:#2a313c;
   --accent:var(--pd); --accent-ink:var(--pdi); --code-bg:#0a0d12; color-scheme:dark;
 }
-/* Palettes: accent colors chosen from the Okabe-Ito colorblind-safe set, darkened or lightened to pass WCAG AA text contrast */
-:root[data-palette="teal"]{--pl:#00735a;--pli:#ffffff;--pd:#4fd1ae;--pdi:#04140f}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:72px}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
@@ -53,8 +51,6 @@ nav{display:flex;align-items:center;gap:16px;min-height:60px;flex-wrap:wrap}
 .nt:hover{color:var(--ink)}
 .nt[aria-selected="true"]{color:var(--ink);border-color:var(--accent)}
 .ctl{display:flex;align-items:center;gap:8px}
-.sw{width:22px;height:22px;border-radius:50%;border:2px solid var(--surface);outline:1px solid var(--line);cursor:pointer;padding:0;color:#fff;font-size:.7rem;line-height:1;display:grid;place-items:center}
-.sw[aria-pressed="true"]{outline:2px solid var(--ink)}
 #theme{background:none;border:1px solid var(--line);color:var(--ink);border-radius:8px;width:36px;height:36px;cursor:pointer;font-size:1rem}
 @media (max-width:720px){
   nav{gap:0}
@@ -86,7 +82,7 @@ nav{display:flex;align-items:center;gap:16px;min-height:60px;flex-wrap:wrap}
 .flogos{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 16px;margin-bottom:28px}
 .flogo{display:flex;align-items:center;justify-content:center;height:56px;min-width:110px;padding:8px 16px;background:#fff;border:1px solid var(--line);border-radius:10px;text-decoration:none}
 .flogo:hover{border-color:var(--accent)}
-.flogo img{display:block;max-height:36px;max-width:150px;width:auto;height:auto;object-fit:contain}
+.flogo img{display:block;max-height:36px;max-width:190px;width:auto;height:auto;object-fit:contain}
 .flogo .fname{color:#14181f;font-weight:600;font-size:.9rem;text-align:center;line-height:1.2}
 
 /* people */
@@ -99,7 +95,7 @@ nav{display:flex;align-items:center;gap:16px;min-height:60px;flex-wrap:wrap}
 
 /* publications */
 .tools{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px}
-input,textarea,select{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 12px;width:100%}
+input,select{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 12px;width:100%}
 .tools input{flex:1 1 240px;width:auto}.tools select{width:auto}
 .pub{padding:20px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:64px 1fr;gap:16px}
 .pub .yr{color:var(--muted);font-variant-numeric:tabular-nums;padding-top:2px}
@@ -119,23 +115,10 @@ input,textarea,select{font:inherit;color:var(--ink);background:var(--surface);bo
 .pk-panel h3{font-size:1.5rem;display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}
 .badge{font-size:.78rem;font-weight:500;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:1px 10px;letter-spacing:0}
 .pk-panel>p{color:var(--muted);margin:8px 0 20px}
-/* .tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);margin-bottom:14px;overflow-x:auto}
-.tab{background:none;border:0;border-bottom:2px solid transparent;padding:8px 12px;cursor:pointer;color:var(--muted);font:inherit;font-size:.92rem;white-space:nowrap}
-.tab[aria-selected="true"]{color:var(--ink);border-color:var(--accent)} */
 .code{position:relative;background:var(--code-bg);color:var(--code-ink);border-radius:8px;margin:0 0 18px}
 .code pre{margin:0;padding:16px 64px 16px 18px;overflow-x:auto;font:.88rem/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
 .copy{position:absolute;top:8px;right:8px;background:#ffffff1a;color:var(--code-ink);border:0;border-radius:6px;padding:4px 10px;cursor:pointer;font:.8rem system-ui}
 .copy:hover{background:#ffffff33}
-/* .pk-panel h4{margin:22px 0 8px;font-size:1rem}
-.pk-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
-.views{margin-bottom:22px}
-.views .tab{font-weight:600;font-size:.98rem;padding:10px 16px}
-.docbar{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:10px;color:var(--muted);font-size:.92rem}
-.docbox{border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface)}
-.docbox iframe{display:block;width:100%;height:min(75vh,720px);min-height:460px;border:0;background:var(--surface)}
-.docmiss{padding:36px 28px}
-.docmiss h4{margin-top:0}
-.docmiss p{color:var(--muted);margin:0 0 14px} */
 .pk-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
 .md{overflow-wrap:anywhere}
 .md>:first-child{margin-top:0}
@@ -152,20 +135,31 @@ input,textarea,select{font:inherit;color:var(--ink);background:var(--surface);bo
 .md hr{border:0;border-top:1px solid var(--line)}
 .md .anchor,.md clipboard-copy{display:none}
 .md-state{color:var(--muted)}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);margin-bottom:20px;overflow-x:auto}
+.tab{background:none;border:0;border-bottom:2px solid transparent;padding:10px 16px;cursor:pointer;color:var(--muted);font:inherit;font-size:.98rem;font-weight:600;white-space:nowrap}
+.tab[aria-selected="true"]{color:var(--ink);border-color:var(--accent)}
+.docbar{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:10px;color:var(--muted);font-size:.92rem}
+.docbox{border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface)}
+.docbox iframe{display:block;width:100%;height:min(78vh,760px);min-height:480px;border:0;background:#fff}
+.docmiss{padding:36px 28px}
+.docmiss p{color:var(--muted);margin:0 0 12px}
+.nb-cell{margin:0 0 20px}
+.nb-cell .code{margin-bottom:6px}
+.nb-out{margin:0 0 8px;padding:8px 14px;border-left:3px solid var(--line);overflow-x:auto}
+pre.nb-out{font:.86rem/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;white-space:pre-wrap}
+.nb-out.err{border-left-color:var(--ink)}
+.nb-out img{display:block;max-width:100%;height:auto;background:#fff}
+.nb-html table{border-collapse:collapse;font-size:.9rem}
+.nb-html th,.nb-html td{border:1px solid var(--line);padding:4px 10px;text-align:right}
 @media (max-width:820px){
   .pk{grid-template-columns:1fr}
   .pk-list{position:static;grid-auto-flow:column;grid-auto-columns:max-content;overflow-x:auto}
 }
 
 /* contact */
-/* .contact{display:grid;grid-template-columns:1fr 1.2fr;gap:48px} */
 .contact{max-width:560px}
 .contact ul{list-style:none;margin:0;padding:0;display:grid;gap:14px}
 .contact li span{display:block;color:var(--muted);font-size:.88rem}
-/* form{display:grid;gap:12px}
-label{display:grid;gap:6px;font-size:.92rem;font-weight:600}
-textarea{min-height:130px;resize:vertical}
-@media (max-width:760px){.contact{grid-template-columns:1fr;gap:28px}} */
 
 footer{border-top:1px solid var(--line);padding:40px 0 28px;color:var(--muted);font-size:.9rem;text-align:center}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
@@ -182,10 +176,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 28px;color:var(--muted);f
     <a class="nt" role="tab" id="t-packages" href="#packages" aria-controls="packages">Packages</a>
     <a class="nt" role="tab" id="t-contact" href="#contact" aria-controls="contact">Contact</a>
   </div>
-  <div class="ctl">
-    <div class="ctl" id="swatches" role="group" aria-label="Color palette"></div>
-    <button id="theme" aria-label="Toggle dark mode">◐</button>
-  </div>
+  <div class="ctl"><button id="theme" aria-label="Toggle dark mode">◐</button></div>
 </nav></div></header>
 
 <main id="top">
@@ -212,7 +203,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 28px;color:var(--muted);f
 
   <section id="people" role="tabpanel" aria-labelledby="t-people" hidden><div class="wrap">
     <h2>People</h2>
-    <!-- <p class="lead">The researchers and engineers behind our work.</p> -->
+    <p class="lead">The researchers and engineers behind our work.</p>
     <div class="people" id="people-grid"></div>
   </div></section>
 
@@ -228,8 +219,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 28px;color:var(--muted);f
 
   <section id="packages" role="tabpanel" aria-labelledby="t-packages" hidden><div class="wrap">
     <h2>Packages</h2>
-    <!-- <p class="lead">Install any package in one line, then follow its documentation.</p> -->
-    <p class="lead">Installation and usage for each package, taken straight from its README on GitHub.</p>
+    <p class="lead">Installation, usage and API documentation for each package.</p>
     <div class="pk">
       <div class="pk-list" id="pk-list" role="tablist" aria-label="Packages"></div>
       <div class="pk-panel" id="pk-panel" role="tabpanel"></div>
@@ -241,18 +231,14 @@ footer{border-top:1px solid var(--line);padding:40px 0 28px;color:var(--muted);f
     <p class="lead" id="c-lead"></p>
     <div class="contact">
       <ul id="c-list"></ul>
-      <!-- <form id="c-form">
-        <label>Name <input name="name" required autocomplete="name"></label>
-        <label>Email <input name="email" type="email" required autocomplete="email"></label>
-        <label>Message <textarea name="message" required></textarea></label>
-        <button class="btn primary" type="submit">Send message</button>
-      </form> -->
     </div>
   </div></section>
 </main>
 
 <footer><div class="wrap"><div class="flogos" id="flogos" role="list" aria-label="Institutions"></div><div id="foot"></div></div></footer>
 
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
 <script>
 /* ============================================================
    EDIT THIS BLOCK ONLY. Everything on the page is generated
@@ -260,9 +246,8 @@ footer{border-top:1px solid var(--line);padding:40px 0 28px;color:var(--muted);f
    ============================================================ */
 const CONFIG = {
   name: "PyNu",
-  github: "py-nu",                       // your GitHub organization name
-  logo: "pynu_logo.png",                                  // optional: path or URL to a logo image
-  palette: "teal",                           // blue | vermilion | teal | violet (all colorblind-friendly)
+  github: "py-nu",                           // your GitHub organization name
+  logo: "pynu_logo.png",                     // optional: path or URL to a logo image
   tagline: "Advancing software tools for neutrino physics analyses.",
 
   about: {
@@ -279,77 +264,67 @@ const CONFIG = {
     stats: [ ["2", "packages"], ["8", "members"], ["5", "publications"] ]
   },
 
-  // Institution logos, shown at the bottom of every page. Add each logo file (SVG or PNG) to your repo,
-  // e.g. assets/logos/example-u.svg, and set "logo" to that path. Without a logo, the name is shown as text.
+  // Institution logos, shown at the bottom of every page. Put each logo file (SVG or PNG) next to this page
+  // and set "logo" to its path. "url" is the institution's website; the logo links to it (leave "" for no link).
   institutions: [
-    { id: "eu",  name: "IGFAE/USC",        logo: "igfae-logo.svg", url: "" },
-    { id: "ti",  name: "Harvard U.",       logo: "harvard-logo.jpg", url: "" },
-    { id: "nrc", name: "UAM",  logo: "uam-logo.jpg", url: "" },
-    { id: "nrc", name: "DIPC",  logo: "dipc-logo.png", url: "" },
-    { id: "nrc", name: "U. Liverpool",  logo: "liv-logo.jpg", url: "" },
-    { id: "nrc", name: "U. Oviedo",  logo: "uo-logo.png", url: "" },
-    { id: "nrc", name: "IFAE",  logo: "ifae_logo.png", url: "" },
-    { id: "nrc", name: "U. Utah",  logo: "utah-logo.jpg", url: "" },
-    { id: "nrc", name: "AEI",  logo: "aei-logo.jpg", url: "" },
+    { name: "IGFAE/USC",    logo: "igfae-logo.svg",   url: "" },
+    { name: "Harvard U.",   logo: "harvard-logo.jpg", url: "" },
+    { name: "UAM",          logo: "uam-logo.jpg",     url: "" },
+    { name: "DIPC",         logo: "dipc-logo.png",    url: "" },
+    { name: "U. Liverpool", logo: "liv-logo.jpg",     url: "" },
+    { name: "U. Oviedo",    logo: "uo-logo.png",      url: "" },
+    { name: "IFAE",         logo: "ifae_logo.png",    url: "" },
+    { name: "U. Utah",      logo: "utah-logo.jpg",    url: "" },
+    { name: "AEI",          logo: "aei-logo.jpg",     url: "" }
   ],
-
 
   people: [
-    { name: "Alba Burgos",    role: "Harvard U.", github: "albaburgos" },
-    { name: "Helena Almazán Molina",    role: "DIPC", github: "halmamol" },
-    { name: "Pilar Casado Lechuga",    role: "IFAE", github: "mpcasado" },
-    { name: "Pablo FM",  role: "IGFAE/USC",          github: "pabloferm"},
-    { name: "Miaochen Jin",   role: "Harvard U.",     github: "MiaochenJin" },
-    { name: "Unik Limbu",    role: "U. Liverpool", github: "uniklimbu10" },
-    { name: "Iván Martínez-Soler",     role: "UAM", github: "imartinezsoler" },
-    { name: "Sergio Suárez Gómez",    role: "UniOvi", github: "Sergio-Suarez" },
-    { name: "Shouvik Mondal",    role: "U. Utah", github: "SMutah" },
- ],
-
-  publications: [
-    { title: "Measuring Oscillations with a Million atmospheric Neutrinos", authors: "C. A. Argüelles, P. Fernández-Menéndez, I. Martínez-Soler, M. Jin (靳淼辰) ", venue: "Phys. Rev. X 13, 041055", year: 2023, paper: "https://journals.aps.org/prx/pdf/10.1103/PhysRevX.13.041055"},
-    { title: "CHIC: Cayley Hamilton, invariants and constants for neutrino oscillation probabilities and gradients",     authors: "P. Fernández-Menéndez",     venue: "J. Phys. G: Nucl. Part. Phys. 53 075002",             year: 2026, paper: "https://iopscience.iop.org/article/10.1088/1361-6471/ae7818/pdf" },
-    { title: "When CPT Violation Hides in Plain Sight: How CP Measurements Are Compromised and How to Fix Them",    authors: "M. Jin (靳淼辰), G. Barenboim (加布里埃拉·巴伦博伊姆), C. A. Argüelles, P. Fernández-Menéndez(帕布洛·费尔南德斯), I. Martinez-Soler",            venue: "arXiv:2606.20830 [hep-ph]",                    year: 2026, paper: "https://arxiv.org/pdf/2606.20830" },
-    { title: "Boosting neutrino mass ordering sensitivity with inelasticity for atmospheric neutrino oscillation measurement",    authors: "S. Giner Olavarrieta, C. A. Argüelles, P. Fernández-Menéndez, I. Martínez-Soler, M. Jin (靳淼辰)",            venue: "Phys. Rev. D 110, L051101",                    year: 2024, paper: "https://journals.aps.org/prd/pdf/10.1103/PhysRevD.110.L051101" },
-    { title: "Evidence for Normal Neutrino Ordering with Combined Atmospheric Neutrino Experiments",    authors: "C. A. Argüelles, P. Fernández-Menéndez, I. Martínez-Soler, M. Jin (靳淼辰)",            venue: "arXiv:2610.12208v2 [hep-ex]",                    year: 2026, paper: "https://arxiv.org/pdf/2610.12208" },
+    { name: "Alba Burgos",            role: "Harvard U.",   github: "albaburgos" },
+    { name: "Helena Almazán Molina",  role: "DIPC",         github: "halmamol" },
+    { name: "Pilar Casado Lechuga",   role: "IFAE",         github: "mpcasado" },
+    { name: "Pablo FM",               role: "IGFAE/USC",    github: "pabloferm" },
+    { name: "Miaochen Jin",           role: "Harvard U.",   github: "MiaochenJin" },
+    { name: "Unik Limbu",             role: "U. Liverpool", github: "uniklimbu10" },
+    { name: "Iván Martínez-Soler",    role: "UAM",          github: "imartinezsoler" },
+    { name: "Sergio Suárez Gómez",    role: "UniOvi",       github: "Sergio-Suarez" },
+    { name: "Shouvik Mondal",         role: "U. Utah",      github: "SMutah" }
   ],
 
-  // Packages. "docs" is the path to each package's generated HTML documentation (relative to this page);
-  // it is embedded in the Packages tab. "docsBuild" is only shown while that file is missing.
-  // Packages. Each package's README is loaded live from its GitHub repository ("repo") and shown in the Packages tab.
+  publications: [
+    { title: "Measuring Oscillations with a Million atmospheric Neutrinos", authors: "C. A. Argüelles, P. Fernández-Menéndez, I. Martínez-Soler, M. Jin (靳淼辰)", venue: "Phys. Rev. X 13, 041055", year: 2023, paper: "https://journals.aps.org/prx/pdf/10.1103/PhysRevX.13.041055" },
+    { title: "CHIC: Cayley Hamilton, invariants and constants for neutrino oscillation probabilities and gradients", authors: "P. Fernández-Menéndez", venue: "J. Phys. G: Nucl. Part. Phys. 53 075002", year: 2026, paper: "https://iopscience.iop.org/article/10.1088/1361-6471/ae7818/pdf" },
+    { title: "When CPT Violation Hides in Plain Sight: How CP Measurements Are Compromised and How to Fix Them", authors: "M. Jin (靳淼辰), G. Barenboim (加布里埃拉·巴伦博伊姆), C. A. Argüelles, P. Fernández-Menéndez (帕布洛·费尔南德斯), I. Martinez-Soler", venue: "arXiv:2606.20830 [hep-ph]", year: 2026, paper: "https://arxiv.org/pdf/2606.20830" },
+    { title: "Boosting neutrino mass ordering sensitivity with inelasticity for atmospheric neutrino oscillation measurement", authors: "S. Giner Olavarrieta, C. A. Argüelles, P. Fernández-Menéndez, I. Martínez-Soler, M. Jin (靳淼辰)", venue: "Phys. Rev. D 110, L051101", year: 2024, paper: "https://journals.aps.org/prd/pdf/10.1103/PhysRevD.110.L051101" },
+    { title: "Evidence for Normal Neutrino Ordering with Combined Atmospheric Neutrino Experiments", authors: "C. A. Argüelles, P. Fernández-Menéndez, I. Martínez-Soler, M. Jin (靳淼辰)", venue: "arXiv:2610.12208v2 [hep-ex]", year: 2026, paper: "https://arxiv.org/pdf/2610.12208" }
+  ],
+
+  // Packages. Each package gets a README tab, plus optional tabs:
+  //   readme:   a GitHub link to README.md (public repos only) or a Markdown file stored next to this page
+  //             (for example "pynu_README.md"; use this for private repos)
+  //   docs:     path to the built HTML documentation stored in this site (adds a Documentation tab)
+  //   notebook: path to a Jupyter notebook stored in this site (adds an Example tab)
   packages: [
     {
       name: "pynu", language: "Python", version: "1.4.0",
-      // description: "The only external dependency that requires more work to be installed is nuSQuIDS, which handles the neutrino oscillations (https://arxiv.org/abs/2112.13804). Please, refer to https://github.com/arguelles/nuSQuIDS and let us know if you find any issues."},
-      // install: { source: "git clone https://github.com/py-nu/Pynu\ncd Pynu\nexport PYNU=$PWD/pynu\nexport PYTHONPATH=$PYTHONPATH:$PYNU\npip install -r requirements.txt"},
-      // usage: "import trailmark as tm\n\nwith tm.record(\"experiment-1\"):\n    run_analysis()",
-      // docs: "docs/trailmark/index.html", docsBuild: "sphinx-apidoc -o docs/source src/trailmark && sphinx-build -b html docs/source docs/trailmark",
+      docs: "pynu_doc/index.html",
+      readme: "pynu_README.md",
       repo: "https://github.com/py-nu/pynu"
     },
     {
       name: "chic", language: "C++", version: "0.9.2",
-      description: "Fast, accessible data grids for the browser.",
-      // install: { npm: "npm install gridfast", yarn: "yarn add gridfast", pnpm: "pnpm add gridfast" },
-      // usage: "import { Grid } from \"gridfast\";\n\nnew Grid(\"#table\", { data, sortable: true });",
-      // docs: "docs/gridfast/index.html", docsBuild: "npx typedoc --out docs/gridfast src/index.ts",
+      description: "",
+      docs: "chic_doc/index.html",
+      notebook: "example.ipynb",
+      readme: "chic_README.md",
       repo: "https://github.com/py-nu/chic"
-    },
-    // {
-    //   name: "pipeline-rs", language: "Rust", version: "2.0.1",
-    //   description: "Streaming data pipelines with predictable memory use.",
-    //   install: { cargo: "cargo add pipeline-rs", source: "git clone https://github.com/acme-labs/pipeline-rs\ncargo build --release" },
-    //   usage: "use pipeline_rs::Pipeline;\n\nPipeline::from_csv(\"data.csv\")?.map(clean).write(\"out.parquet\")?;",
-    //   docs: "docs/pipeline-rs/index.html", docsBuild: "cargo doc --no-deps && cp -r target/doc/pipeline_rs/. docs/pipeline-rs/",
-    //   repo: "https://github.com/acme-labs/pipeline-rs"
-    // }
+    }
   ],
 
   contact: {
     lead: "Questions, collaboration ideas?",
     email: "pablo.fer@cern.ch",
     // address: "Department of Computer Science, Example University",
-    links: [ ["Discussions", "https://github.com/orgs/py-nu/discussions"], ["Report an issue", "https://github.com/py-nu/.github/issues"]]
-    // links: [ ["Discussions", "https://github.com/orgs/acme-labs/discussions"], ["Report an issue", "https://github.com/acme-labs/.github/issues"], ["Mastodon", "https://mastodon.social/@acmelabs"] ]
+    links: [ ["Discussions", "https://github.com/orgs/py-nu/discussions"], ["Report an issue", "https://github.com/py-nu/.github/issues"] ]
   }
 };
 /* ============================================================ */
@@ -364,7 +339,7 @@ $("#brand").textContent = C.name;
 $("#h-name").textContent = C.name;
 $("#h-tag").textContent = C.tagline;
 $("#h-gh").href = ghUrl;
-if (C.logo) { const l = $("#logo"); l.src = C.logo; l.hidden = false; }
+if (C.logo) { const l = $("#logo"); l.onerror = () => { l.hidden = true; }; l.src = C.logo; l.hidden = false; }
 $("#stats").innerHTML = (C.about.stats || []).map(([n, l]) => `<div><b>${esc(n)}</b>${esc(l)}</div>`).join("");
 
 /* institution logos (footer) */
@@ -418,46 +393,57 @@ $("#yr").addEventListener("change", renderPubs);
 renderPubs();
 
 /* packages: the README of each repository is fetched from GitHub (already rendered to safe HTML) */
-let curPkg = 0;
+let curPkg = 0, curView = "readme";
 const readmes = {};
 const repoPath = p => { const m = /github\.com\/([^/]+\/[^/#?]+)/.exec(p.repo || ""); return m && m[1].replace(/\.git$/, ""); };
+/* accepts a normal GitHub page link (.../blob/main/README.md) and turns it into the raw file link */
+const rawUrl = u => u.replace(/^https:\/\/github\.com\/([^/]+\/[^/]+)\/blob\//, "https://raw.githubusercontent.com/$1/");
 function renderPkgList() {
   $("#pk-list").innerHTML = C.packages.map((p, i) =>
     `<button class="pk-item" role="tab" aria-selected="${i === curPkg}" data-i="${i}">${esc(p.name)}<small>${esc(p.language)}</small></button>`
   ).join("");
 }
 function renderPkg() {
-  // const p = C.packages[curPkg], keys = Object.keys(p.install);
-  // const key = keys.includes(curInstall) ? curInstall : keys[0];
-  // const views = [["install", "Install & usage"], ["docs", "API documentation"]];
-  // let body;
-  // if (curView === "docs") {
-  //   body = `<div class="docbar"><span>Generated from the docstrings of ${esc(p.name)}</span>${p.docs ? `<a href="${esc(p.docs)}" target="_blank" rel="noopener">Open in a new tab</a>` : ""}</div>
-  //     <div class="docbox" id="docbox"></div>`;
-  // } else {
-  //   body = `<h4 style="margin-top:0">Install</h4>
-  //   <div class="tabs" role="tablist">${keys.map(k => `<button class="tab" role="tab" aria-selected="${k === key}" data-k="${esc(k)}">${esc(k)}</button>`).join("")}</div>
-  //   <div class="code"><pre>${esc(p.install[key])}</pre><button class="copy">Copy</button></div>
-  //   ${p.usage ? `<h4>Quick start</h4><div class="code"><pre>${esc(p.usage)}</pre><button class="copy">Copy</button></div>` : ""}`;
-  // }
   const p = C.packages[curPkg];
+  const views = [["readme", "README"], ...(p.docs ? [["docs", "Documentation"]] : []), ...(p.notebook ? [["notebook", "Example"]] : [])];
+  if (!views.some(v => v[0] === curView)) curView = "readme";
+  const body = curView === "notebook"
+    ? `<div class="docbar"><span>Example notebook: ${esc(p.notebook.split("/").pop())}</span><a href="${esc(p.notebook)}" download>Download notebook</a></div>
+       <div class="nb" id="nb"><p class="md-state">Loading notebook…</p></div>`
+    : curView === "docs"
+    ? `<div class="docbar"><span>Built from the docstrings of ${esc(p.name)}</span><a href="${esc(p.docs)}" target="_blank" rel="noopener">Open in a new tab</a></div>
+       <div class="docbox" id="docbox"></div>`
+    : `<div class="md" id="md"><p class="md-state">Loading README…</p></div>`;
   $("#pk-panel").innerHTML = `
     <h3>${esc(p.name)} <span class="badge">${esc(p.language)}</span> ${p.version ? `<span class="badge">v${esc(p.version)}</span>` : ""}</h3>
     ${p.description ? `<p>${esc(p.description)}</p>` : ""}
-    <div class="md" id="md"><p class="md-state">Loading README…</p></div>
+    ${views.length > 1 ? `<div class="tabs" role="tablist" aria-label="${esc(p.name)} sections">${views.map(([v, l]) => `<button class="tab" role="tab" aria-selected="${v === curView}" data-v="${v}">${l}</button>`).join("")}</div>` : ""}
+    ${body}
     <div class="pk-links">${p.repo ? `<a class="btn" href="${esc(p.repo)}" target="_blank" rel="noopener">Source on GitHub</a>` : ""}</div>`;
-  loadReadme(p, curPkg);
+  curView === "notebook" ? loadNotebook(p, curPkg) : curView === "docs" ? loadDocs(p, curPkg) : loadReadme(p, curPkg);
 }
-/* Embeds the generated docs. Only the same site can be embedded reliably; external sites may refuse framing. */
 function loadReadme(p, idx) {
-  const box = $("#md"), repo = repoPath(p);
-  const show = html => { if (idx === curPkg && box.isConnected) { box.innerHTML = html; fixReadme(box, repo); } };
-  const fail = () => { if (idx === curPkg && box.isConnected) box.innerHTML = `<p class="md-state">The README could not be loaded${p.repo ? `. <a href="${esc(p.repo)}" target="_blank" rel="noopener">Read it on GitHub</a>.` : "."}</p>`; };
-  if (!repo) return fail();
-  if (readmes[repo]) return show(readmes[repo]);
-  fetch(`https://api.github.com/repos/${repo}/readme`, { headers: { Accept: "application/vnd.github.html+json" } })
-    .then(r => r.ok ? r.text() : Promise.reject())
-    .then(h => { readmes[repo] = h; show(h); })
+  const box = $("#md"), repo = repoPath(p), local = p.readme && !/^https?:/i.test(p.readme);
+  const tried = [];   /* what was attempted, shown if the README cannot be loaded */
+  const show = html => { if (idx === curPkg && box.isConnected) { box.innerHTML = html; fixReadme(box, local ? null : repo); } };
+  const fail = () => { if (idx === curPkg && box.isConnected) box.innerHTML = `<p class="md-state"><b>The README could not be loaded.</b></p>
+    ${tried.length ? `<ul class="md-state">${tried.map(t => `<li><code>${esc(t)}</code></li>`).join("")}</ul>` : ""}
+    <p class="md-state">A web page cannot read private repositories. Save the README next to this page (for example <code>pynu_README.md</code>) and set <code>readme: "pynu_README.md"</code> in CONFIG.${p.repo ? ` Or <a href="${esc(p.repo)}" target="_blank" rel="noopener">read it on GitHub</a>.` : ""}</p>`; };
+  /* where to get the Markdown: the "readme" in CONFIG (a GitHub link or a file in this site), else the repository */
+  const sources = p.readme ? [[rawUrl(p.readme)]] : repo ? [
+    [`https://raw.githubusercontent.com/${repo}/HEAD/README.md`],
+    [`https://api.github.com/repos/${repo}/readme`, { headers: { Accept: "application/vnd.github.raw+json" } }]
+  ] : [];
+  const key = sources.length ? sources[0][0] : "";
+  if (readmes[key]) return show(readmes[key]);
+  const get = i => i >= sources.length ? Promise.reject() : fetch(...sources[i]).then(
+    r => r.ok ? r.text() : (tried.push(`${sources[i][0]}  →  error ${r.status}`), get(i + 1)),
+    () => (tried.push(`${sources[i][0]}  →  blocked or offline (if you opened the file directly, use Live Server)`), get(i + 1)));
+  get(0)
+    .then(md => {
+      if (typeof marked === "undefined" || typeof DOMPurify === "undefined") { tried.push("the Markdown library did not load (network blocked?)"); throw 0; }
+      const html = DOMPurify.sanitize(marked.parse(md)); readmes[key] = html; show(html);
+    })
     .catch(fail);
 }
 /* makes relative links and images work, and adds Copy buttons to code blocks */
@@ -465,30 +451,99 @@ function fixReadme(box, repo) {
   const abs = /^([a-z][a-z0-9+.-]*:|\/\/|#)/i, clean = u => u.replace(/^\.?\//, "");
   box.querySelectorAll("a[href]").forEach(a => {
     const h = a.getAttribute("href");
-    if (!abs.test(h)) a.setAttribute("href", `https://github.com/${repo}/blob/HEAD/${clean(h)}`);
+    if (repo && !abs.test(h)) a.setAttribute("href", `https://github.com/${repo}/blob/HEAD/${clean(h)}`);
     if (!h.startsWith("#")) { a.target = "_blank"; a.rel = "noopener"; }
   });
   box.querySelectorAll("img[src]").forEach(i => {
     const u = i.getAttribute("src");
-    if (!abs.test(u)) i.src = `https://raw.githubusercontent.com/${repo}/HEAD/${clean(u)}`;
+    if (repo && !abs.test(u)) i.src = `https://raw.githubusercontent.com/${repo}/HEAD/${clean(u)}`;
     i.loading = "lazy";
   });
+  box.querySelectorAll("h1,h2,h3,h4,h5,h6").forEach(h =>   /* anchors for in-README links, like GitHub */
+    h.id = "user-content-" + h.textContent.toLowerCase().trim().replace(/[^\w\- ]+/g, "").replace(/\s/g, "-"));
   box.querySelectorAll("pre").forEach(pre => {
     const w = document.createElement("div"), b = document.createElement("button");
     w.className = "code"; b.className = "copy"; b.textContent = "Copy";
     pre.replaceWith(w); w.append(pre, b);
   });
 }
+/* Embeds the HTML documentation stored in this site (e.g. pynu_doc/index.html). */
+function loadDocs(p, idx) {
+  const box = $("#docbox");
+  const missing = () => { if (idx === curPkg && box.isConnected) box.innerHTML = `<div class="docmiss"><p><b>Documentation not found.</b></p>
+    <p>Nothing was found at <code>${esc(p.docs)}</code>. Copy the built HTML documentation into that folder, or fix the <code>docs</code> path in CONFIG.</p></div>`; };
+  const attach = () => { if (idx === curPkg && box.isConnected) box.innerHTML = `<iframe title="${esc(p.name)} documentation" src="${esc(p.docs)}"></iframe>`; };
+  fetch(p.docs, { method: "HEAD" }).then(r => r.status === 404 ? missing() : attach(), attach);
+}
+/* Shows a Jupyter notebook (.ipynb) stored in this site: its Markdown cells, code cells and saved outputs (figures included). */
+function loadNotebook(p, idx) {
+  const box = $("#nb");
+  const fail = msg => { if (idx === curPkg && box.isConnected) box.innerHTML = `<div class="docmiss"><p><b>The notebook could not be shown.</b></p>
+    <p>${esc(msg)} Path: <code>${esc(p.notebook)}</code>. Keep the .ipynb next to this page, and view the site through Live Server or GitHub Pages.</p></div>`; };
+  fetch(p.notebook)
+    .then(r => r.ok ? r.json() : Promise.reject(`File not found (error ${r.status}).`))
+    .then(nb => {
+      if (typeof marked === "undefined" || typeof DOMPurify === "undefined") throw "The Markdown library did not load.";
+      if (!(idx === curPkg && box.isConnected)) return;
+      box.innerHTML = renderNotebook(nb);
+      /* figures stored as separate image files: paths are relative to the notebook's folder */
+      const base = p.notebook.includes("/") ? p.notebook.slice(0, p.notebook.lastIndexOf("/") + 1) : "";
+      box.querySelectorAll("img").forEach(i => {
+        const u = i.getAttribute("src") || "";
+        if (u && !/^([a-z][a-z0-9+.-]*:|\/)/i.test(u)) i.setAttribute("src", base + u);
+      });
+      box.addEventListener("error", e => {
+        if (e.target.tagName !== "IMG") return;
+        const n = document.createElement("span");
+        n.className = "md-state"; n.textContent = `[figure not found: ${e.target.getAttribute("src")}. Copy the image file next to the notebook.]`;
+        e.target.replaceWith(n);
+      }, true);
+    })
+    .catch(e => fail(typeof e === "string" ? e : "The file is not a valid notebook, or could not be read."));
+}
+function renderNotebook(nb) {
+  const txt = v => Array.isArray(v) ? v.join("") : String(v ?? "");
+  const ansi = s => s.replace(/\x1b\[[0-9;]*[A-Za-z]/g, "");
+  /* images pasted into Markdown cells are stored inside the notebook as "attachment:name": turn them into real images */
+  const md = (s, att) => `<div class="md">${DOMPurify.sanitize(marked.parse(txt(s).replace(/attachment:([^\s)"']+)/g, (m, n) => {
+    const a = att && att[decodeURIComponent(n)], t = a && Object.keys(a)[0];
+    return t ? `data:${t};base64,${txt(a[t]).replace(/\s/g, "")}` : m;
+  })))}</div>`;
+  const out = o => {
+    if (o.output_type === "stream") return `<pre class="nb-out${o.name === "stderr" ? " err" : ""}">${esc(ansi(txt(o.text)))}</pre>`;
+    if (o.output_type === "error") return `<pre class="nb-out err">${esc(ansi((o.traceback || [o.ename + ": " + o.evalue]).join("\n")))}</pre>`;
+    const d = o.data || {};
+    if (d["image/svg+xml"]) return `<div class="nb-out">${DOMPurify.sanitize(txt(d["image/svg+xml"]), { USE_PROFILES: { svg: true, svgFilters: true } })}</div>`;
+    const img = Object.keys(d).find(k => /^image\/(png|jpe?g|gif|webp|bmp)$/.test(k));
+    if (img) return `<div class="nb-out"><img alt="Notebook figure" src="data:${img};base64,${txt(d[img]).replace(/\s/g, "")}"></div>`;
+    if (d["text/html"]) {
+      const h = DOMPurify.sanitize(txt(d["text/html"]), { FORBID_TAGS: ["style"] });
+      if (/<(img|svg|table|canvas)\b/i.test(h) || h.replace(/<[^>]*>/g, "").trim()) return `<div class="nb-out nb-html">${h}</div>`;
+    }
+    if (d["text/markdown"]) return `<div class="nb-out">${md(d["text/markdown"])}</div>`;
+    if (d["text/plain"]) return `<pre class="nb-out">${esc(txt(d["text/plain"]))}</pre>`;
+    const kinds = Object.keys(d).join(", ");
+    return kinds ? `<div class="nb-out md-state">[This output (${esc(kinds)}) is interactive, so it cannot be shown here. Save the figure as an image in the notebook instead.]</div>` : "";
+  };
+  return (nb.cells || []).map(c => {
+    const src = txt(c.source);
+    if (c.cell_type === "markdown") return md(src, c.attachments);
+    if (c.cell_type === "code") return `<div class="nb-cell">${src.trim() ? `<div class="code"><pre><code>${esc(src)}</code></pre><button class="copy">Copy</button></div>` : ""}${(c.outputs || []).map(out).join("")}</div>`;
+    return "";
+  }).join("");
+}
 $("#pk-list").addEventListener("click", e => {
   const b = e.target.closest(".pk-item"); if (!b) return;
   curPkg = +b.dataset.i; renderPkgList(); renderPkg();
 });
 $("#pk-panel").addEventListener("click", e => {
+  const t = e.target.closest(".tab");
+  if (t) { curView = t.dataset.v; return renderPkg(); }
   const a = e.target.closest('.md a[href^="#"]');
   if (a) {   /* in-README links scroll inside the README instead of changing the tab */
     e.preventDefault();
     const id = decodeURIComponent(a.getAttribute("href").slice(1));
-    const el = document.getElementById(id) || document.getElementById("user-content-" + id);
+    const el = document.getElementById("user-content-" + id) || document.getElementById(id);
     if (el) (el.closest("h1,h2,h3,h4,h5,h6") || el).scrollIntoView();
     return;
   }
@@ -504,38 +559,16 @@ $("#pk-panel").addEventListener("click", e => {
 });
 renderPkgList(); renderPkg();
 
-/* contact: opens the visitor's email app, no server needed */
+/* contact */
 $("#c-lead").textContent = C.contact.lead;
 $("#c-list").innerHTML =
   `<li><span>Email</span><a href="mailto:${esc(C.contact.email)}">${esc(C.contact.email)}</a></li>` +
   (C.contact.address ? `<li><span>Address</span>${esc(C.contact.address)}</li>` : "") +
   `<li><span>GitHub</span><a href="${ghUrl}" target="_blank" rel="noopener">github.com/${esc(C.github)}</a></li>` +
   C.contact.links.map(([t, u]) => `<li><span>${esc(t)}</span><a href="${esc(u)}" target="_blank" rel="noopener">${esc(u.replace(/^https?:\/\//, ""))}</a></li>`).join("");
-// $("#c-form").addEventListener("submit", e => {
-//   e.preventDefault();
-//   const f = new FormData(e.target);
-//   const body = `${f.get("message")}\n\n— ${f.get("name")} (${f.get("email")})`;
-//   location.href = `mailto:${C.contact.email}?subject=${encodeURIComponent("Message from " + f.get("name"))}&body=${encodeURIComponent(body)}`;
-// });
 
 /* footer */
 $("#foot").textContent = `© ${new Date().getFullYear()} ${C.name}. Built with GitHub Pages.`;
-
-// /* color palettes */
-// const PALETTES = { blue: "#3b5bdb", vermilion: "#b84a00", teal: "#00735a", violet: "#6b3fa0" };
-// function setPalette(p, save) {
-//   if (!PALETTES[p]) p = "blue";
-//   document.documentElement.dataset.palette = p;
-//   document.querySelectorAll(".sw").forEach(b => {
-//     const on = b.dataset.p === p; b.setAttribute("aria-pressed", on); b.textContent = on ? "✓" : "";
-//   });
-//   if (save) try { localStorage.setItem("palette", p); } catch (e) {}
-// }
-// $("#swatches").innerHTML = Object.entries(PALETTES).map(([p, c]) =>
-//   `<button class="sw" data-p="${p}" style="background:${c}" title="${p[0].toUpperCase() + p.slice(1)}" aria-label="${p} palette"></button>`).join("");
-// $("#swatches").addEventListener("click", e => { const b = e.target.closest(".sw"); if (b) setPalette(b.dataset.p, true); });
-// let savedPal; try { savedPal = localStorage.getItem("palette"); } catch (e) {}
-// setPalette(savedPal || C.palette, false);
 
 /* theme toggle */
 const root = document.documentElement;
